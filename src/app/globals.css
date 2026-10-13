@@ -660,6 +660,132 @@ button {
   }
 }
 
+
+/* =======================================================================
+   Blog
+   ======================================================================= */
+.blog-empty {
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.blog-meta {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.blog-article {
+  max-width: 1120px;
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.blog-head {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.blog-head h1 {
+  max-width: 20ch;
+  font-size: 3.5rem;
+  line-height: 1.08;
+}
+
+.blog-cover {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.blog-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.blog-body {
+  max-width: 680px;
+  margin-inline: auto;
+  font-size: 1.125rem;
+  line-height: 1.78;
+}
+
+.blog-body > * + * {
+  margin-top: 1.5rem;
+}
+
+.blog-body h2 {
+  margin-top: 3rem;
+  font-size: 2.25rem;
+}
+
+.blog-body h3 {
+  margin-top: 2.25rem;
+  font-size: 1.6rem;
+}
+
+.blog-body ul,
+.blog-body ol {
+  padding-left: 1.5rem;
+}
+
+.blog-body ul {
+  list-style: disc;
+}
+
+.blog-body ol {
+  list-style: decimal;
+}
+
+.blog-body blockquote {
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--olive);
+  color: var(--muted);
+}
+
+.blog-body a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.blog-body figure {
+  width: 100%;
+  max-width: 640px;
+  margin: 2.5rem auto;
+}
+
+.blog-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 700px) {
+  .blog-head h1 {
+    font-size: 2.35rem;
+  }
+
+  .blog-cover img {
+    max-height: 340px;
+  }
+
+  .blog-body {
+    font-size: 1.0625rem;
+  }
+
+  .blog-body figure img {
+    max-height: 340px;
+  }
+}
 /* Cursor-following preview (fine pointers only) */
 .work__preview {
   display: none;
