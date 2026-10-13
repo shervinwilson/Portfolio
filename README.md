@@ -21,6 +21,9 @@ Sans) are downloaded from Google Fonts at build time by `next/font`.
 | `/`               | Hero, selected work, about, skills, contact             |
 | `/work`           | All projects                                            |
 | `/work/[slug]`    | One case study page per project (generated from data)   |
+| `/blog`           | Published posts from Sanity                             |
+| `/blog/[slug]`    | Sanity post detail page                                 |
+| `/studio`         | Sanity content studio                                   |
 | `/about`          | About and skills                                        |
 | `/contact`        | Contact form                                            |
 | `/api/contact`    | Form endpoint (validates, then sends email via Resend)  |
@@ -52,9 +55,13 @@ Colours and spacing are CSS variables at the top of `src/app/globals.css`.
 All animation is wrapped in `gsap.matchMedia()` and switches off for visitors who
 prefer reduced motion. GSAP is registered once in `src/lib/gsap.js`.
 
-## Contact form email
+## Environment variables
 
-Copy `.env.example` to `.env.local` and fill it in (uses [Resend](https://resend.com)):
+Copy `.env.example` to `.env.local`, then set the Sanity project ID and dataset
+for your project. The Sanity values connect the blog and embedded Studio to your
+content project. `.env.local` is intentionally excluded from Git.
+
+The contact form uses [Resend](https://resend.com):
 
 ```
 RESEND_API_KEY=...
@@ -62,8 +69,8 @@ CONTACT_TO_EMAIL=you@yourdomain.com
 CONTACT_FROM_EMAIL="Portfolio <onboarding@resend.dev>"
 ```
 
-Without these, messages are logged to the terminal in development, and the form
-shows a "not set up yet" message in production.
+Without the Resend values, messages are logged to the terminal in development,
+and the form shows a "not set up yet" message in production.
 
 ## Deploy
 
