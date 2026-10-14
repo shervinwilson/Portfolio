@@ -1,10 +1,13 @@
 import WorkIndex from "@/components/WorkIndex";
 import { projects } from "@/data/site";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Work",
-  description: "Selected websites and projects.",
-};
+  description:
+    "Explore websites designed and built by Shervin Wilson, including responsive web design, Webflow, WordPress, and custom development projects.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   return (
@@ -12,8 +15,8 @@ export default function WorkPage() {
       <header className="page-head">
         <h1>Work</h1>
         <p className="page-head__lead">
-          Websites I&apos;ve designed, built and improved. Pick a project to
-          read how it came together.
+          A selection of websites and digital projects I&apos;ve worked on. Open a
+          project to visit its live site.
         </p>
       </header>
       <section className="section section--tight" aria-label="All projects">

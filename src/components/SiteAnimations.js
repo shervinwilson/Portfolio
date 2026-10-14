@@ -58,6 +58,11 @@ export default function SiteAnimations() {
 
         // Section headings.
         all(".section__head h2").forEach((h) => rise([h], h));
+        const services = document.querySelector(".services-section");
+        if (services) {
+          rise(all(".services__head > *"), services, { stagger: 0.1 });
+          all(".service-row").forEach((row) => rise([row], row));
+        }
 
         // About text and facts.
         const about = document.querySelector(".about");
@@ -65,6 +70,7 @@ export default function SiteAnimations() {
           rise(
             [
               ...all(".about > h2"),
+              ...all(".about__portrait"),
               ...all(".about__lead"),
               ...all(".about__body > p"),
               ...all(".facts > div"),

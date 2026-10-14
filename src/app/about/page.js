@@ -1,10 +1,13 @@
 import AboutBlock from "@/components/AboutBlock";
 import Skills from "@/components/Skills";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "About",
-  description: "Who I am, what I do and the tools I use.",
-};
+  description:
+    "Meet Shervin Wilson, a web designer and developer in Kerala, India. Learn about his approach, skills, and experience building websites.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

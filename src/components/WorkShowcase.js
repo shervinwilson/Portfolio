@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { gsap, useGSAP } from "@/lib/gsap";
+import ProjectArt from "./ProjectArt";
 
 // The black "Selected work" section on the home page. It slides up over the
 // hero (see .stack and .hero in globals.css); the hero fades in Hero.js.
@@ -58,7 +59,12 @@ export default function WorkShowcase({ projects }) {
               key={project.slug}
               style={{ "--i": i }}
             >
-              <Link href={`/work/${project.slug}`} className="showcase__row">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="showcase__row"
+              >
                 <span className="showcase__num" aria-hidden="true">
                   ({String(i + 1).padStart(2, "0")})
                 </span>
@@ -70,7 +76,10 @@ export default function WorkShowcase({ projects }) {
                     <span>{project.year}</span>
                   </span>
                 </span>
-              </Link>
+                <span className="showcase__art" aria-hidden="true">
+                  <ProjectArt screenshot={project.screenshot} />
+                </span>
+              </a>
             </li>
           ))}
           {/* Extra scroll room so the last row stays pinned for a moment

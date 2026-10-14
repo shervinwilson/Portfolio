@@ -61,7 +61,16 @@ Copy `.env.example` to `.env.local`, then set the Sanity project ID and dataset
 for your project. The Sanity values connect the blog and embedded Studio to your
 content project. `.env.local` is intentionally excluded from Git.
 
-The contact form uses [Resend](https://resend.com):
+Set `NEXT_PUBLIC_SITE_URL` to the canonical production origin (for example,
+`https://your-domain.com`). This is used for canonical links, social metadata,
+`robots.txt`, and the sitemap. On Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is
+used as a fallback when `NEXT_PUBLIC_SITE_URL` is not set.
+
+The contact form sends mail through [Resend](https://resend.com). Set
+`RESEND_API_KEY` and `CONTACT_FROM_EMAIL` in `.env.local` and in the production
+deployment. `CONTACT_TO_EMAIL` defaults to `shervinwilson379@gmail.com`. For
+production delivery, verify your sending domain with Resend and use an address
+on that domain as `CONTACT_FROM_EMAIL`.
 
 ```
 RESEND_API_KEY=...
@@ -69,8 +78,8 @@ CONTACT_TO_EMAIL=you@yourdomain.com
 CONTACT_FROM_EMAIL="Portfolio <onboarding@resend.dev>"
 ```
 
-Without the Resend values, messages are logged to the terminal in development,
-and the form shows a "not set up yet" message in production.
+Without the Resend settings, the form reports that email delivery is not
+configured. Messages are not stored or logged as successful submissions.
 
 ## Deploy
 

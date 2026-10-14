@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { site } from "@/data/site";
 
 export default function Footer() {
@@ -14,6 +15,14 @@ export default function Footer() {
         <p className="footer__copy">
           &copy; {new Date().getFullYear()} {site.name}
         </p>
+        <nav aria-label="Footer">
+          <ul className="footer__menu">
+            <li><Link href="/#services">Services</Link></li>
+            <li><Link href="/#work">Work</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/about">About</Link></li>
+          </ul>
+        </nav>
         <ul className="footer__links">
           <li>
             <a href={`mailto:${site.email}`}>Email</a>

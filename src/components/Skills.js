@@ -7,8 +7,13 @@ export default function Skills() {
         <div key={group.title}>
           <h3>{group.title}</h3>
           <ul>
-            {group.items.map((item) => (
-              <li key={item}>{item}</li>
+            {group.items.map((item, index) => (
+              <li key={item}>
+                <span className="skills__index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>{item}</span>
+              </li>
             ))}
           </ul>
         </div>

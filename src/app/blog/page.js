@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { POSTS_QUERY } from "@/sanity/queries";
+import { createPageMetadata } from "@/lib/seo";
 
 export const revalidate = 60;
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Blog",
-  description: "Notes and articles.",
-};
+  description:
+    "Notes, tutorials, and ideas on web design, development, and building better websites.",
+  path: "/blog",
+});
 
 function formatDate(value) {
   if (!value) return "";

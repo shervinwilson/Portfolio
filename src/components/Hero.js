@@ -80,18 +80,18 @@ export default function Hero() {
         // so the hero is untouched at the top of the page.
         const inner = q(".hero__inner")[0];
         const portraitInner = q(".hero__portrait-inner")[0];
-        const work = document.getElementById("work");
+        const services = document.getElementById("services");
         const setOpacity = gsap.quickSetter(inner, "opacity");
         const setDrift = gsap.quickSetter(inner, "y", "px");
         const setPortrait = gsap.quickSetter(portraitInner, "yPercent");
 
         const updateFade = () => {
-          if (!inner || !work) return;
+          if (!inner || !services) return;
           const vh = window.innerHeight;
           const progress = gsap.utils.clamp(
             0,
             1,
-            (vh - work.getBoundingClientRect().top) / (vh * 0.9)
+            (vh - services.getBoundingClientRect().top) / (vh * 0.9)
           );
           setOpacity(1 - 0.85 * progress);
           setDrift(-progress * vh * 0.1);

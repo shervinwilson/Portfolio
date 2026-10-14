@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { site } from "@/data/site";
 
 const isEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -38,21 +39,13 @@ export async function POST(request) {
     );
   }
 
-  const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
+  const { RESEND_API_KEY, CONTACT_FROM_EMAIL } = process.env;
+  const contactToEmail = process.env.CONTACT_TO_EMAIL || site.email;
 
-  if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) {
-    if (process.env.NODE_ENV !== "production") {
-      console.log("[contact] Email not configured. Message received:", {
-        name,
-        email,
-        message,
-      });
-      return NextResponse.json({ ok: true });
-    }
+  if (!RESEND_API_KEY || !CONTACT_FROM_EMAIL) {
     return NextResponse.json(
       {
-        error:
-          "The contact form isn't set up yet. Please email me directly instead.",
+        error: `Email delivery isn't configured yet. Please email me at ${contactToEmail}.`,
       },
       { status: 503 }
     );
@@ -67,7 +60,7 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         from: CONTACT_FROM_EMAIL,
-        to: [CONTACT_TO_EMAIL],
+        to: [contactToEmail],
         reply_to: email,
         subject: `New message from ${name}`,
         text: `From: ${name} <${email}>\n\n${message}`,

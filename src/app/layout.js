@@ -5,6 +5,11 @@ import Footer from "@/components/Footer";
 import SiteAnimations from "@/components/SiteAnimations";
 import PageTransition from "@/components/PageTransition";
 import { site } from "@/data/site";
+import {
+  absoluteSiteUrl,
+  createPageMetadata,
+  siteUrl,
+} from "@/lib/seo";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -18,15 +23,60 @@ const body = Instrument_Sans({
   display: "swap",
 });
 
+const siteTitle = `${site.name} | Web Designer & Developer in Kerala, India`;
+const siteDescription =
+  "Shervin Wilson is a web designer and developer in Kerala, India, building responsive websites with Webflow, WordPress, and custom code.";
+
 export const metadata = {
+  ...(siteUrl ? { metadataBase: siteUrl } : {}),
+  ...createPageMetadata({
+    title: siteTitle,
+    description: siteDescription,
+    path: "/",
+  }),
   title: {
-    default: `${site.name} | ${site.role}`,
+    default: siteTitle,
     template: `%s | ${site.name}`,
   },
-  description: site.intro,
+  applicationName: site.name,
+  creator: site.name,
+  publisher: site.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxImagePreview: "large",
+      maxSnippet: -1,
+      maxVideoPreview: -1,
+    },
+  },
+};
+
+const profileJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.role,
+  homeLocation: { "@type": "Place", name: site.location },
+  sameAs: site.socials.map(({ href }) => href),
+  ...(siteUrl
+    ? {
+        "@id": absoluteSiteUrl("/#person"),
+        url: siteUrl.href,
+        image: absoluteSiteUrl(site.aboutPortrait || site.portrait),
+      }
+    : {}),
 };
 
 export default function RootLayout({ children }) {
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(profileJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
   return (
     <html
       lang="en"

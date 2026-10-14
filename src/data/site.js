@@ -18,6 +18,7 @@ export const site = {
   // Your photo lives in /public/portrait.jpg. Replace that file to change it
   // (or set this to "" to show a placeholder illustration instead).
   portrait: "/portrait.jpg",
+  aboutPortrait: "/Shervin-Wilson.webp",
 
   // Placeholders: replace with your real contact details.
   email: "shervinwilson379@gmail.com",
@@ -50,85 +51,125 @@ export const site = {
       items: ["Responsive Web Design", "UI/UX Design", "Website Optimization"],
     },
   ],
+
+  services: [
+    {
+      title: "Web design and builds",
+      description:
+        "Clear, responsive websites that turn a rough idea into a polished experience people can use on any screen.",
+      items: ["Webflow", "WordPress", "Custom code"],
+    },
+    {
+      title: "Redesigns and refinements",
+      description:
+        "A sharper structure and visual system for sites that have outgrown their original design.",
+      items: ["Content structure", "UI/UX", "Responsive design"],
+    },
+    {
+      title: "Performance and support",
+      description:
+        "Practical improvements that make existing websites faster, more reliable, and easier to maintain.",
+      items: ["Core Web Vitals", "Accessibility", "Ongoing care"],
+    },
+  ],
 };
 
-// `art` picks one of the four placeholder illustrations (0-3).
-// Replace the illustrations with real screenshots whenever you're ready.
+// Project screenshots are stored locally in public/projects.
 export const projects = [
   {
-    slug: "studio-landing-page",
-    title: "Studio landing page",
-    category: "Webflow build",
-    year: "2026",
-    art: 0,
-    summary:
-      "A one-page site for a small design studio, with a CMS for case studies.",
-    role: "Design and development",
-    tools: ["Webflow", "CMS", "Custom interactions"],
-    overview:
-      "A small design studio needed a site that showed its work quickly and could be updated without a developer. I designed the layout and built it in Webflow with a CMS-driven case study section.",
-    challenge:
-      "The studio had a lot of visual work but very little time to maintain a site. The page had to feel considered while staying simple enough for the team to edit on their own.",
-    approach:
-      "I started from the content, sketching the page as a sequence of clear moments before touching colour or type. Case studies became CMS items with a fixed structure, so new projects take minutes to publish.",
-    outcome:
-      "The studio now publishes new work itself. Replace this line with a real result such as load time, enquiries, or client feedback.",
+    slug: "colourland-uae",
+    title: "Colour Land Trading",
+    url: "https://colourlanduae.com/",
   },
   {
-    slug: "local-shop-redesign",
-    title: "Local shop redesign",
-    category: "Redesign and build",
-    year: "2026",
-    art: 1,
-    summary:
-      "A clearer structure and faster pages for an independent retail shop.",
-    role: "UI/UX design and development",
-    tools: ["WordPress", "Elementor", "Responsive design"],
-    overview:
-      "An independent shop had a site that was hard to browse on phones and slow to load. I reworked the structure, simplified the navigation and rebuilt the key pages.",
-    challenge:
-      "Most visitors arrived on mobile, but the old layout was built for desktop. Product pages were heavy and the path to contacting the shop was buried.",
-    approach:
-      "I mapped the main visitor journeys, rebuilt the templates mobile-first, and cut unnecessary plugins and oversized images.",
-    outcome:
-      "The new site is simpler to browse and easier to maintain. Replace this line with a real result.",
+    slug: "kjp-designs",
+    title: "KJP Designs",
+    url: "https://kjpdesigns.net/",
   },
   {
-    slug: "performance-audit",
-    title: "Performance audit",
-    category: "Website optimization",
-    year: "2025",
-    art: 2,
-    summary:
-      "Finding and fixing what was slowing down a content-heavy website.",
-    role: "Audit and implementation",
-    tools: ["JavaScript", "Image optimization", "Core Web Vitals"],
-    overview:
-      "A content-heavy site felt sluggish, especially on mid-range phones. I audited it, ranked the causes by impact, and fixed the biggest ones first.",
-    challenge:
-      "Slowness came from many small things rather than one big one: large images, render-blocking scripts and layout shifts.",
-    approach:
-      "I measured before changing anything, fixed issues in order of impact, and re-measured after each change so the gains were clear.",
-    outcome:
-      "Pages load noticeably faster and feel more stable. Replace this line with your measured before and after numbers.",
+    slug: "mercian",
+    title: "Mercian",
+    url: "https://mercian.ae/",
   },
   {
-    slug: "photographer-portfolio",
-    title: "Photographer portfolio",
-    category: "Design and development",
-    year: "2025",
-    art: 3,
-    summary:
-      "An image-led portfolio where the photographs get the whole screen.",
-    role: "Design and development",
-    tools: ["Webflow", "JavaScript", "Responsive design"],
-    overview:
-      "A photographer wanted a portfolio that stayed out of the way of the images. I designed a quiet, grid-based layout with generous space and fast-loading galleries.",
-    challenge:
-      "Large images usually mean slow pages. The site needed to show photography at full quality without making visitors wait.",
-    approach:
-      "I used responsive image sizes, lazy loading below the fold, and a restrained interface so the work leads.",
-    outcome:
-      "Galleries open quickly and look sharp on any screen. Replace this line with a real result.",
+    slug: "living-water-dentistry",
+    title: "Living Water Dentistry",
+    url: "https://livingwaterdentistry.ca/",
   },
-];
+  {
+    slug: "pacific-supply-fzco",
+    title: "Pacific Supply FZCO",
+    url: "https://pacificsupplyfzco.com/",
+  },
+  {
+    slug: "haidabim",
+    title: "Haidabim",
+    url: "https://haidabim.com/",
+  },
+  {
+    slug: "katara-limousine",
+    title: "Katara Limousine",
+    url: "https://kataralimousine.com/",
+  },
+  {
+    slug: "bosq",
+    title: "BOSQ",
+    url: "https://bosq.in/",
+  },
+  {
+    slug: "iretex-premier",
+    title: "The Premier Pack | IRETEX PREMIER",
+    url: "https://iretexpremier.com/",
+  },
+  {
+    slug: "global-medilink",
+    title: "Global Medilink",
+    url: "https://globalmedilink.com/",
+  },
+  {
+    slug: "aman-abs",
+    title: "Aman ABS",
+    url: "https://amanabs.com/",
+  },
+  {
+    slug: "mcc-global",
+    title: "MCC Global",
+    url: "https://mccglobal.co/",
+  },
+  {
+    slug: "herbartizan",
+    title: "Herbartizan",
+    url: "https://herbartizan.com/",
+  },
+  {
+    slug: "neerozhukkil-vaidyasala",
+    title: "Neerozhukkil Vaidyasala",
+    url: "https://neerozhukkilvaidyasala.com/",
+  },
+  {
+    slug: "charter-247",
+    title: "Charter 247",
+    url: "https://charter-247.com/",
+  },
+  {
+    slug: "autosmarts",
+    title: "AutoSmarts",
+    url: "https://autosmarts.co/en",
+  },
+  {
+    slug: "elite-infotech",
+    title: "Elite Infotech",
+    url: "https://www.eliteinfotech.com/",
+  },
+  {
+    slug: "cliffton-park-club",
+    title: "Cliffton Park Club",
+    url: "https://clifftonparkclub.com/",
+  },
+].map((project) => ({
+  ...project,
+  category: "Website",
+  status: "Live",
+  summary: "Visit the live website",
+  screenshot: `/projects/${project.slug}.jpg`,
+}));

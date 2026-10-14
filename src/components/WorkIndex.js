@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
 import { gsap, useGSAP } from "@/lib/gsap";
 import ProjectArt from "./ProjectArt";
 
@@ -48,8 +47,10 @@ export default function WorkIndex({ projects }) {
       <ul className="work__list">
         {projects.map((project, i) => (
           <li key={project.slug}>
-            <Link
-              href={`/work/${project.slug}`}
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="work__row"
               onMouseEnter={() => setActive(i)}
               onMouseLeave={() => setActive(-1)}
@@ -59,8 +60,8 @@ export default function WorkIndex({ projects }) {
                 <span className="work__summary">{project.summary}</span>
               </span>
               <span className="work__meta">{project.category}</span>
-              <span className="work__year">{project.year}</span>
-            </Link>
+              <span className="work__year">{project.status}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -72,7 +73,7 @@ export default function WorkIndex({ projects }) {
             key={project.slug}
             data-on={active === i ? "true" : "false"}
           >
-            <ProjectArt variant={project.art} />
+            <ProjectArt screenshot={project.screenshot} />
           </div>
         ))}
       </div>

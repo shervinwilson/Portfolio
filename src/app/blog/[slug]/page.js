@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { POST_QUERY } from "@/sanity/queries";
+import { createPageMetadata } from "@/lib/seo";
 
 export const revalidate = 60;
 
@@ -27,10 +28,18 @@ export async function generateMetadata({ params }) {
   const post = await getPost(slug);
   if (!post) return {};
 
-  return {
+  return createPageMetadata({
     title: post.title,
-    description: post.excerpt?.slice(0, 160),
-  };
+    description:
+      post.excerpt?.replace(/\s+/g, " ").trim().slice(0, 160) ||
+      `Read ${post.title} by Shervin Wilson.`,
+    path: `/blog/${post.slug}`,
+    type: "article",
+    image: post.mainImage?.asset
+      ? urlFor(post.mainImage).width(1200).url()
+      : undefined,
+    imageAlt: post.mainImage?.alt || post.title,
+  });
 }
 
 export default async function BlogPostPage({ params }) {

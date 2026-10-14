@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { site } from "@/data/site";
 
 const links = [
+  { href: "/#services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
@@ -16,6 +17,7 @@ export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [hidden, setHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // On the home page the nav floats over the content, so it tucks away while
   // you scroll down and returns as soon as you scroll up.
@@ -46,7 +48,21 @@ export default function Nav() {
         {isHome ? site.role : site.name}
       </Link>
 
-      <nav aria-label="Primary">
+      <button
+        type="button"
+        className="nav__toggle"
+        aria-expanded={menuOpen}
+        aria-controls="primary-navigation"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? "Close" : "Menu"}
+      </button>
+
+      <nav
+        className={menuOpen ? "nav__menu nav__menu--open" : "nav__menu"}
+        id="primary-navigation"
+        aria-label="Primary"
+      >
         <ul className="nav__links">
           {links.map((link) => {
             const active =
@@ -56,6 +72,7 @@ export default function Nav() {
                 <Link
                   href={link.href}
                   aria-current={active ? "page" : undefined}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
